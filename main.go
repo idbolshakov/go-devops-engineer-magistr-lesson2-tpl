@@ -7,14 +7,21 @@ import (
 )
 
 func main() {
+  if len(os.Args) < 2 {
+    fmt.Println(fmt.Errorf("yaml file path is not set"))
+    os.Exit(-1)
+    return
+  }
+
+  yamlFilePath := os.Args[1]
+
   // 0: read file
-  content, err := os.ReadFile("pod.yaml")
+  content, err := os.ReadFile(yamlFilePath)
   if err != nil {
     fmt.Println(fmt.Errorf("cannot read file content: %w", err))
     os.Exit(-1)
     return
   }
-  print("fff")
 
   // 1: parse yaml
   var root yaml.Node

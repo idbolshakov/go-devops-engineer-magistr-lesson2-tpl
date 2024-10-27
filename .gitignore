@@ -30,3 +30,6 @@ go.work.sum
 
 yamlvalid
 pod.yaml
+
+# mac specifics
+.DS_Store
